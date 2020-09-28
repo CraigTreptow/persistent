@@ -1377,7 +1377,7 @@ instance FromJSON PostgresConf where
 instance PersistConfig PostgresConf where
     type PersistConfigBackend PostgresConf = SqlPersistT
     type PersistConfigPool PostgresConf = ConnectionPool
-    createPoolConfig conf = runNoLoggingT $ createPostgresqlPoolWithConf getServerVersion (const $ pure ()) conf -- FIXME
+    createPoolConfig conf = runNoLoggingT $ createPostgresqlPoolWithConf getServerVersion (const $ pure ()) conf
     runPool _ = runSqlPool
     loadConfig = parseJSON
 
